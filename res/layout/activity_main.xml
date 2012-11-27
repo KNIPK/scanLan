@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+       android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip" >
+
+        <Button
+            android:id="@+id/btn_skanuj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"   
+            android:text="@string/btn_skanuj" />
+
+    </LinearLayout>
+
+    <FrameLayout
+          android:layout_width="fill_parent" 
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <ListView
+           android:id="@+id/output"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:dividerHeight="0dip"
+            android:cacheColorHint="#00000000" >
+        </ListView>
+
+        <TextView
+            android:id="@+id/list_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dip"
+            android:typeface="serif"
+            android:text="@string/skanuj_opis"/>
+
+    </FrameLayout>
+
+</LinearLayout>
