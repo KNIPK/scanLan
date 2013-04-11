@@ -61,6 +61,7 @@ public class MainActivity  extends ListActivity {
 	private Toast 			 mToast 			 	 = null;
 	private long  			 mLastBackPressTime 	 = 0;
 	private String PREF_HOST = "Hosts"; 
+	boolean mStartScan = false;
 
 	private class HostAdapter extends ArrayAdapter<Host> 
 	{		
@@ -188,7 +189,17 @@ public class MainActivity  extends ListActivity {
 		}
 	}
 	
+	public boolean isOnline() {
+	    ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
 
+	    if(netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()){
+	        Toast.makeText(getBaseContext(), "No Internet connection!", Toast.LENGTH_LONG).show();
+	        return false;
+	    }
+	return true; 
+	}
+	
 	public void createOnlineLayout( ) {
 		mHostAdapter = new HostAdapter( );
 		
@@ -216,7 +227,8 @@ public class MainActivity  extends ListActivity {
  
         mHostAdapter = new HostAdapter();
 		setListAdapter(mHostAdapter);
-startNetworkDiscovery(false);
+if(mStartScan)
+	startNetworkDiscovery(false);
 	
 	}
 	
@@ -226,15 +238,8 @@ startNetworkDiscovery(false);
 		setContentView(R.layout.activity_main);
 		
 
-		 ConnectivityManager manager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-		    NetworkInfo netInfo = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-		    if(!netInfo.isConnected())
-		    {
-		    	
-		    	
-		    	final WifiManager wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
-		        final WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-		        if (connectionInfo == null || TextUtils.isEmpty(connectionInfo.getSSID())) {
+		        if (!isOnline())
+		        {
 		         
 		    	Log.d("MainActivity", "No wifi connection");
 		    	 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);                 
@@ -263,7 +268,7 @@ startNetworkDiscovery(false);
 		             alert.show();
 		        }
 		    	
-		    }
+		    
 		
 		// we are online, and the system was already initialized
     	if( mHostAdapter != null )
