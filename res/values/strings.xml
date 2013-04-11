@@ -4,8 +4,12 @@
     <string name="app_name">ScanLan</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="title_activity_port_scan">PortScanActivity</string>
+
+
     <string name="skanuj_opis">Nacisnij Skanuj aby rozpoczać</string>
     <string name="btn_skanuj">Skanuj</string>
     <string name="btn_anuluj">Anuluj</string>
+
 
 </resources>

@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemActivity" > 
+  
+    <TextView
+        android:id="@+id/textViewItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonT"
+        android:layout_marginTop="32dp"
+        android:text="TextViewsadasdsad" /> 
+  
+    <Button
+        android:id="@+id/buttonT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/textViewItem"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="38dp"
+        android:text="Trace Route" /> 
+  
+    <Button
+        android:id="@+id/buttonPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewItem"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/buttonT"
+        android:text="Port Scan" /> 
+  
+    <Button
+        android:id="@+id/buttonP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewItem"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="22dp"
+        android:text="Ping" /> 
+  
+</RelativeLayout>
